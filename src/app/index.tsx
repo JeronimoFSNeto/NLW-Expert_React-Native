@@ -32,7 +32,7 @@ export default function  Home(){
 
   return(
     <View className="flex-1 pt-8">
-      <Header title="Faça seu pedido" cartQuantifyItems={3} />
+      <Header title="Faça seu pedido agora no nosso app." cartQuantifyItems={3} />
 
       <FlatList 
         data={CATEGORIES}
