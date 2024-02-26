@@ -3,15 +3,19 @@ import { View, Text, FlatList, SectionList} from "react-native"
 import { Link } from "expo-router"
 
 import {CATEGORIES, MENU} from "@/utils/data/products"
+import { useCartStore } from "@/stores/cart-store"
 
 import { Header } from "@/components/header"
 import { CategoryButton } from "@/components/category-button"
 import { Product } from "@/components/product"
   
 export default function  Home(){
+  const cartStore = useCartStore()
   const [category, setCategory]   = useState(CATEGORIES[0])
   
   const sectionListRef = useRef<SectionList>(null) 
+
+  const cartQuantifyItems = cartStore.products.reduce((total, product) => total + product.quantity, 0)
 
   function handleCategorySelect( selectedCategory: string){
     //console.log(selectedCategory)
@@ -32,7 +36,7 @@ export default function  Home(){
 
   return(
     <View className="flex-1 pt-8">
-      <Header title="Faça seu pedido agora no nosso app." cartQuantifyItems={3} />
+      <Header title="Faça seu pedido agora no nosso app." cartQuantifyItems={cartQuantifyItems} />
 
       <FlatList 
         data={CATEGORIES}

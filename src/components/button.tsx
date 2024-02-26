@@ -1,12 +1,12 @@
 import { ReactNode } from "react";
-import { TouchableOpacity, Text } from "react-native";
+import { TouchableOpacity, TouchableOpacityProps, Text } from "react-native";
 
-type ButtonProps = TouchableOpacity & {
+type ButtonProps = TouchableOpacityProps & {
   children: ReactNode
 }
 
 type ButtonTextProps = {
-  children: ReactNode
+  children: ReactNode 
 }
 
 type ButtonIconProps = {
